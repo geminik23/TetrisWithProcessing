@@ -21,7 +21,7 @@ public class GridBoard implements IDrawElement {
 			for(int j=0;j<m_blockSize[0]+2;++j)
 				m_grid[i][j] = -1;
 
-		for(int i=0;i<m_blockSize[0]+2;++i) m_grid[0][i] = m_grid[m_blockSize[1]+1][i] = 0;
+		for(int i=0;i<m_blockSize[0]+2;++i) m_grid[m_blockSize[1]+1][i] = 0;
 	}
 
 	public void freezeShape(int[] coords, int[] pos, int c){

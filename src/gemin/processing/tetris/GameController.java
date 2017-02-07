@@ -65,22 +65,18 @@ public class GameController implements IDrawElement {
 	}
 
 	/** handle Commands events */
-	public boolean onCommand(Commands cmd){
+	public void onCommand(Commands cmd){
 		switch(cmd){
 		case MoveDown:
 			this.moveDown();
-			return true;
+			break;
 		case MoveLeft:
-			if(!m_grid.isBlocked(m_shape.getCoords(), m_shape.getPosX()+1, m_shape.getPosY())){
+			if(!m_grid.isBlocked(m_shape.getCoords(), m_shape.getPosX()+1, m_shape.getPosY()))
 				m_shape.moveLeft();
-				return true;
-			}
 			break;
 		case MoveRight:
-			if(!m_grid.isBlocked(m_shape.getCoords(), m_shape.getPosX()-1, m_shape.getPosY())){
-				m_shape.moveRight();     
-				return true;
-			}
+			if(!m_grid.isBlocked(m_shape.getCoords(), m_shape.getPosX()-1, m_shape.getPosY()))
+				m_shape.moveRight(); 
 			break;
 		case Drop: 
 			int dy = 1;
@@ -88,24 +84,19 @@ public class GameController implements IDrawElement {
 			dy -= 2;
 			m_shape.moveDown(dy);
 
-			this.shapeToGrid();
-			
-			return true;
+			this.shapeToGrid();			
+			break;
 		case Rotate:
-			if(!m_grid.isBlocked(m_shape.getCoords(), m_shape.getPosX(), m_shape.getPosY(), true)){
-
+			if(!m_grid.isBlocked(m_shape.getCoords(), m_shape.getPosX(), m_shape.getPosY(), true))
 				m_shape.rotate();   
-				return true;
-			}      
 			break;
 		case Start:
 			this.start();
-			return true;
+			break;
 		case End:
 			this.stop();
-			return true;
+			break;
 		}
-		return false;
 	}
 
 }
