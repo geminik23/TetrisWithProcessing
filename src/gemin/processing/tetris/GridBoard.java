@@ -22,6 +22,7 @@ public class GridBoard implements IDrawElement {
 				m_grid[i][j] = -1;
 
 		for(int i=0;i<m_blockSize[0]+2;++i) m_grid[m_blockSize[1]+1][i] = 0;
+		for(int i=0;i<m_blockSize[1]+2;++i) m_grid[i][0] = m_grid[i][m_blockSize[0]+1] = 0;
 	}
 
 	public void freezeShape(int[] coords, int[] pos, int c){
@@ -51,7 +52,7 @@ public class GridBoard implements IDrawElement {
 	public boolean isBlocked(int[] coords, int posx, int posy){ return this.isBlocked(coords, posx, posy, false);}
 	public boolean isBlocked(int[] coords, int posx, int posy, boolean rot){
 		boolean retval = false;
-		if(rot) Shape.RotateCCW(coords); //rotate
+		if(rot) Shape.RotateCW(coords); //rotate
 		int py=0, px=0;
 
 		for(int i=0;i<4;++i){
@@ -66,7 +67,7 @@ public class GridBoard implements IDrawElement {
 			}
 		}
 
-		if(rot) Shape.RotateCW(coords); // back rotate
+		if(rot) Shape.RotateCCW(coords); // back rotate
 
 		return retval;
 	}

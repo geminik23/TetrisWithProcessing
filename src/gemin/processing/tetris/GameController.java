@@ -71,11 +71,11 @@ public class GameController implements IDrawElement {
 			this.moveDown();
 			break;
 		case MoveLeft:
-			if(!m_grid.isBlocked(m_shape.getCoords(), m_shape.getPosX()+1, m_shape.getPosY()))
+			if(!m_grid.isBlocked(m_shape.getCoords(), m_shape.getPosX()-1, m_shape.getPosY()))
 				m_shape.moveLeft();
 			break;
 		case MoveRight:
-			if(!m_grid.isBlocked(m_shape.getCoords(), m_shape.getPosX()-1, m_shape.getPosY()))
+			if(!m_grid.isBlocked(m_shape.getCoords(), m_shape.getPosX()+1, m_shape.getPosY()))
 				m_shape.moveRight(); 
 			break;
 		case Drop: 

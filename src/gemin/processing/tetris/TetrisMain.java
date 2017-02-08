@@ -44,7 +44,7 @@ public class TetrisMain extends PApplet implements IBlockDrawer{
 		this.fill(color,255);
 		this.stroke(0);
 		this.strokeWeight(1.f);
-		this.rect(m_xoffset + (BlockCount[0] - posx)*m_eachSize, 
+		this.rect(m_xoffset + posx*m_eachSize, 
 				posy*m_eachSize, 
 				m_eachSize,
 				m_eachSize);
